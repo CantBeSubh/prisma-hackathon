@@ -1,3 +1,5 @@
+import { Switch } from "@/components/ui/switch"
+
 type DevicesType = {
     [room: string]: {
         [device: string]: {
@@ -7,36 +9,39 @@ type DevicesType = {
         }
     }
 }
+type DeviceCardProps = {
+    device: string
+    on: boolean
+}
+
+const DeviceCard = (props: DeviceCardProps) => {
+    const { device, on } = props
+    return (
+        <div className="flex gap-2 border-2 border-black rounded-lg p-2">
+            <h3 className="text-thin">{device}</h3>
+            <Switch defaultChecked={on} />
+        </div>
+    )
+}
+
 const DevicesPage = () => {
     return (
         <>
-            <h1 className="text-3xl font-bold underline">Devices</h1>
-            <div className="">
+            <h1 className="text-4xl font-bold underline pb-2">Devices</h1>
+            <div className="flex flex-col gap-4">
+                {/* Devices */}
                 {Object.keys(DEVICES).map((room) => (
-                    <div key={room} >
-                        <h2 className="text-2xl font-bold underline">{room}</h2>
-                        {Object.keys(DEVICES[room]).map((device) => (
-                            <div key={device} className="flex flex-row gap-2">
-                                <h3 className="text-xl font-bold underline">{device}</h3>
-                                <div className="flex flex-col gap-2">
-                                    {Object.keys(DEVICES[room][device]).map((prop) => (
-                                        <div key={prop}>
-                                            <h4 className="text-lg font-bold underline">{prop}</h4>
-                                            <div className="flex flex-col gap-2">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-10 h-10 rounded-full bg-black"></div>
-                                                    <div className="flex-1">
-                                                        <div className="text-sm font-bold">{DEVICES?.room?.device?.on ? 'ON' : 'OFF'}</div>
-                                                        <div className="text-xs font-bold">{DEVICES?.room?.device?.color}</div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
+                    <div key={room} className="mb-2">
+                        <h3 className="text-2xl font-bold pb-1">{room}</h3>
+                        <div className="flex gap-2">
+                            {Object.keys(DEVICES[room]).map((device) => (
+                                <DeviceCard
+                                    device={device}
+                                    on={DEVICES[room][device].on}
+                                    key={device}
+                                />
+                            ))}
+                        </div>
                     </div>
                 ))}
             </div>
@@ -54,7 +59,7 @@ const DEVICES: DevicesType = {
             brightness: 100,
         },
         vent: {
-            on: true,
+            on: false,
         },
         mirror_light: {
             on: true,
@@ -64,7 +69,7 @@ const DEVICES: DevicesType = {
     },
     LIVING_ROOM: {
         TV: {
-            on: true,
+            on: false,
         },
         light: {
             on: true,
