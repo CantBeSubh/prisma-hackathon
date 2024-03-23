@@ -7,18 +7,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import Link from "next/link"
 
 type BentoCardProps = {
   row?: number
   col?: number
+  href?: string
   children: React.ReactNode
 }
 const BentoCard = (props: BentoCardProps) => {
-  const { row, col, children } = props
+  const { row, col, href, children } = props
   return (
-    <div className={`col-span-${col ?? 1} row-span-${row ?? 1} bg-gradient-to-r from-neutral-100 to-neutral-200 rounded-lg border-2 border-black flex items-center justify-center h-60 text-black`}>
+    <Link
+      href={href ?? '/'}
+      className={`col-span-${col ?? 1} row-span-${row ?? 1} bg-gradient-to-br from-neutral-100 to-neutral-300 rounded-lg border-2 border-black flex items-center justify-center h-80 text-black cursor-pointer`}
+    >
       {children ?? 'PLACEHOLDER'}
-    </div>
+    </Link>
   )
 }
 
@@ -92,7 +97,7 @@ export default function Home() {
         {/* Bento Grid */}
         <div className="grid grid-cols-3 grid-rows-2 gap-4 p-4 h-fit w-full">
           <BentoCard> ACCOUNT </BentoCard>
-          <BentoCard> DEVICES </BentoCard>
+          <BentoCard href="/devices"> DEVICES </BentoCard>
           <BentoCard> ROUTING </BentoCard>
           <BentoCard> SAM </BentoCard>
           <BentoCard> ADD DEVICES </BentoCard>
