@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Switch } from "@/components/ui/switch"
 import Link from "next/link"
 
 type BentoCardProps = {
@@ -29,12 +30,26 @@ const BentoCard = (props: BentoCardProps) => {
 
 const UserSelector = () => {
   const dummyUsers = [
-    'John Doe',
-    'Jane Doe',
-    'Bob Smith',
-    'Alice Johnson',
-    'Mark Brown',
-    'Sarah Lee',
+    'Joe Biden',
+    'Barack Obama',
+    'Donald Trump',
+    'Bill Gates',
+    'Elon Musk',
+    'Mark Zuckerberg',
+    'Jeff Bezos',
+    'Larry Page',
+    'Sergey Brin',
+    'Bill Gates',
+    'Steve Jobs',
+    'Richard Branson',
+    'Jack Ma',
+    'Jeff Bezos',
+    'Larry Page',
+    'Sergey Brin',
+    'Bill Gates',
+    'Steve Jobs',
+    'Richard Branson',
+    'Jack Ma',
   ]
   return (
     <Select defaultValue={dummyUsers[0]}>
@@ -43,7 +58,7 @@ const UserSelector = () => {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
+          <SelectLabel>Names</SelectLabel>
           {dummyUsers.map((user) => (
             <SelectItem key={user} value={user}>
               {user}
@@ -98,10 +113,15 @@ export default function Home() {
         <div className="grid grid-cols-3 grid-rows-2 gap-4 p-4 h-fit w-full">
           <BentoCard> ACCOUNT </BentoCard>
           <BentoCard href="/devices"> DEVICES </BentoCard>
-          <BentoCard> ROUTING </BentoCard>
-          <BentoCard> SAM </BentoCard>
+          <BentoCard href='/routines'> ROUTINES </BentoCard>
+          <BentoCard href='localhost:7860/'> DEVICES </BentoCard>
           <BentoCard> ADD DEVICES </BentoCard>
           <BentoCard> AUTOMATED ROUTINES </BentoCard>
+        </div>
+        <div className="flex w-full items-center justify-center px-4 py-4 gap-4">
+          {/* ECO BUTTON */}
+          ECO MODE
+          <Switch defaultChecked={true} />
         </div>
       </div>
     </>
