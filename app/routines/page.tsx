@@ -5,7 +5,7 @@ type RoutineCardProps = {
 const RoutineCard = (props: RoutineCardProps) => {
     const { device } = props
     return (
-        <div className="flex gap-2 border-2 border-black rounded-lg p-2">
+        <div className="flex gap-2 border-2 border-black rounded-lg p-2 cursor-pointer">
             <h3 className="text-thin">{device}</h3>
         </div>
     )
