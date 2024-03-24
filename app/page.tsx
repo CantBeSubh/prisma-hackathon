@@ -114,7 +114,7 @@ export default function Home() {
           <BentoCard> ACCOUNT </BentoCard>
           <BentoCard href="/devices"> DEVICES </BentoCard>
           <BentoCard href='/routines'> ROUTINES </BentoCard>
-          <BentoCard href='localhost:7860/'> SAM </BentoCard>
+          <BentoCard href='http://localhost:7860//'> SAM </BentoCard>
           <BentoCard> ADD DEVICES </BentoCard>
           <BentoCard href='/automated_routines'> AUTOMATED ROUTINES </BentoCard>
         </div>
