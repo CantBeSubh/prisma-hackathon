@@ -116,7 +116,7 @@ export default function Home() {
           <BentoCard href='/routines'> ROUTINES </BentoCard>
           <BentoCard href='localhost:7860/'> SAM </BentoCard>
           <BentoCard> ADD DEVICES </BentoCard>
-          <BentoCard> AUTOMATED ROUTINES </BentoCard>
+          <BentoCard href='/automated_routines'> AUTOMATED ROUTINES </BentoCard>
         </div>
         <div className="flex w-full items-center justify-center px-4 py-4 gap-4">
           {/* ECO BUTTON */}

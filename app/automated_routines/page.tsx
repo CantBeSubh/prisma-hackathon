@@ -1,5 +1,5 @@
 'use client'
-import routines from '@/routines.json'
+import routines from '@/automated_routines.json'
 import { useState } from 'react'
 
 type RoutineType = {
@@ -25,7 +25,7 @@ const RoutineCard = (props: RoutineCardProps) => {
     )
 }
 
-const RoutinesPage = () => {
+const AutomatedRoutinesPage = () => {
     const [currentRoutine, setCurrentRoutine] = useState<RoutineType>()
     return (
         <div className='flex w-full justify-between h-screen'>
@@ -56,4 +56,4 @@ const RoutinesPage = () => {
     )
 }
 
-export default RoutinesPage
+export default AutomatedRoutinesPage
