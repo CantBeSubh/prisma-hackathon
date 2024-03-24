@@ -1,3 +1,4 @@
+import { Popup } from "@/components/suggestion/popup"
 import {
   Select,
   SelectContent,
@@ -124,6 +125,7 @@ export default function Home() {
           <Switch defaultChecked={true} />
         </div>
       </div>
+      <Popup />
     </>
   )
 }
